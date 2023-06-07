@@ -31,11 +31,11 @@
                 <div class="col-md-3" style="margin-top: 50px">
                          <div class="card">
                              <div class="card-body">
-                                <img class="card-image-top" src="http://images.amazon.com/images/P/0439136350.01.MZZZZZZZ.jpg">
-                                <h2 class="text-white">Harry Potter</h2>
-                                <h4 class="text-white">J K Rowling</h4>
-                                <h4 class="text-white">Votes - 300</h4>
-                                <h4 class="text-white">Ratings - 5.6</h4>
+                                <img class="card-image-top" src={{ image[i] }}>
+                                <p class="text-white">{{ book_name[i] }}</p>
+                                <h4 class="text-white">{{ author[i] }}</h4>
+                                <h4 class="text-white">Votes - {{ votes[i] }}</h4>
+                                <h4 class="text-white">Ratings - {{ rating[i] }}</h4>
                             </div>
                          </div>
                 </div>
