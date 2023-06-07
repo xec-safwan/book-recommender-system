@@ -22,6 +22,13 @@ def index():  # put application's code here
                            rating=list(popular_df['avg_rating'].values)
                            )
 
+@app.route('/recommend')
+def recommend_ui():
+    pt = pickle.load(open('pt.pkl', 'rb'))
+    books = pickle.load(open('books.pkl', 'rb'))
+    similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
+    return render_template('recommend.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
