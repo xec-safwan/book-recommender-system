@@ -2,9 +2,7 @@ from flask import Flask, render_template,request
 import pickle
 import numpy as np
 
-pt = pickle.load(open('pt.pkl', 'rb'))
-books = pickle.load(open('books.pkl', 'rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
+
 
 
 app = Flask(__name__)
@@ -28,6 +26,9 @@ def recommend_ui():
 
 @app.route('/recommend_books',methods=['post'])
 def recommend():
+    pt = pickle.load(open('pt.pkl', 'rb'))
+    books = pickle.load(open('books.pkl', 'rb'))
+    similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
     user_input = request.form.get('user_input')
     index = np.where(pt.index == user_input)[0][0]
     similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
